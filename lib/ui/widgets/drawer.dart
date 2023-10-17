@@ -34,6 +34,7 @@ class DrawerMenu extends StatelessWidget {
               ),
               minLeadingWidth: 10,
               title: const Text("Início"),
+              visualDensity: VisualDensity.compact,
               onTap: () => Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => const HomePage()),
