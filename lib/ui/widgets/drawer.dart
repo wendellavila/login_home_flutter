@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_home/ui/screens/home.dart';
-import 'package:login_home/ui/screens/login.dart';
+import 'package:login_home/ui/screens/home/home.dart';
+import 'package:login_home/ui/screens/login/login.dart';
 
 class DrawerMenu extends StatelessWidget {
-  const DrawerMenu(
-      {required this.username, this.isCurrentScreenHome = false, super.key});
+  const DrawerMenu({required this.username, this.isCurrentScreenHome = false, super.key});
 
   final bool isCurrentScreenHome;
   final String username;
@@ -15,16 +14,21 @@ class DrawerMenu extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            decoration:
-                BoxDecoration(color: Theme.of(context).colorScheme.secondary),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Expanded(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
                   child: Text(
-                username.toUpperCase(),
-                style: const TextStyle(fontSize: 18),
-                textAlign: TextAlign.center,
-              ))
-            ]),
+                    username.toUpperCase(),
+                    style: const TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              ],
+            ),
           ),
           if (!isCurrentScreenHome)
             ListTile(
@@ -37,7 +41,9 @@ class DrawerMenu extends StatelessWidget {
               visualDensity: VisualDensity.compact,
               onTap: () => Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
                 ModalRoute.withName('/'),
               ),
             ),

@@ -1,5 +1,5 @@
 name: login_home
-description: A new Flutter project.
+description: Basic layout for an app with login and home navigation
 
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
@@ -13,7 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
-  
 
 dev_dependencies:
   flutter_test:
@@ -32,7 +31,7 @@ flutter:
     - assets/img/icon/
     - assets/img/logo/
     - assets/img/photo/
-  
+
   fonts:
     - family: Lato
       fonts:
@@ -48,8 +47,8 @@ flutter:
         #   style: italic
         - asset: fonts/Lato-Regular.ttf
           weight: 400
-        # - asset: fonts/Lato-Italic.ttf
-        #   weight: 400
+          # - asset: fonts/Lato-Italic.ttf
+          #   weight: 400
           style: italic
         - asset: fonts/Lato-Bold.ttf
           weight: 700

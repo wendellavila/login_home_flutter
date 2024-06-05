@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_home/ui/screens/home.dart';
+import 'package:login_home/ui/screens/home/home.dart';
 import 'package:login_home/ui/screens/password_reset.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,8 +20,7 @@ class _LoginPage extends State<LoginPage> {
   Widget _landscapeLoginBody() {
     return GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () => FocusScope.of(context)
-            .unfocus(), //Hide keyboard when clicking outside of inputs
+        onTap: () => FocusScope.of(context).unfocus(), //Hide keyboard when clicking outside of inputs
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -37,12 +36,12 @@ class _LoginPage extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                              width: 220,
-                              child: Image(
-                                image:
-                                    AssetImage('assets/img/logo/logo-HQ.png'),
-                                width: 500,
-                              )),
+                            width: 220,
+                            child: Image(
+                              image: AssetImage('assets/img/logo/logo-HQ.png'),
+                              width: 500,
+                            ),
+                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -50,7 +49,7 @@ class _LoginPage extends State<LoginPage> {
                             "LOGIN PAGE",
                             style: TextStyle(fontSize: 24),
                             textAlign: TextAlign.center,
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -70,9 +69,7 @@ class _LoginPage extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                            width: MediaQuery.of(context).size.width < 450
-                                ? MediaQuery.of(context).size.width
-                                : 430,
+                            width: MediaQuery.of(context).size.width < 450 ? MediaQuery.of(context).size.width : 430,
                             child: TextFormField(
                               textAlign: TextAlign.center,
                               textInputAction: TextInputAction.next,
@@ -94,9 +91,7 @@ class _LoginPage extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                            width: MediaQuery.of(context).size.width < 450
-                                ? MediaQuery.of(context).size.width
-                                : 430,
+                            width: MediaQuery.of(context).size.width < 450 ? MediaQuery.of(context).size.width : 430,
                             child: TextFormField(
                               textAlign: TextAlign.center,
                               textInputAction: TextInputAction.done,
@@ -108,22 +103,17 @@ class _LoginPage extends State<LoginPage> {
                                   border: const OutlineInputBorder(),
                                   contentPadding: const EdgeInsets.all(0.0),
                                   suffixIcon: IconButton(
-                                    icon: Icon(_showPassword
-                                        ? Icons.visibility_off
-                                        : Icons.visibility),
+                                    icon: Icon(_showPassword ? Icons.visibility_off : Icons.visibility),
                                     onPressed: () => setState(() {
-                                      _showPassword =
-                                          _showPassword ? false : true;
+                                      _showPassword = _showPassword ? false : true;
                                     }),
                                   )),
                               onChanged: (_) => setState(() {}),
                               onFieldSubmitted: (_) {
-                                if (_codeController.text.isNotEmpty &&
-                                    _passwordController.text.isNotEmpty) {
+                                if (_codeController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
                                   Navigator.pushAndRemoveUntil(
                                     context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const HomePage()),
+                                    MaterialPageRoute(builder: (context) => const HomePage()),
                                     ModalRoute.withName('/'),
                                   );
                                 }
@@ -136,24 +126,16 @@ class _LoginPage extends State<LoginPage> {
                           width: 220,
                           height: 40,
                           child: ElevatedButton(
-                            onPressed: (_codeController.text.isNotEmpty &&
-                                    _passwordController.text.isNotEmpty)
+                            onPressed: (_codeController.text.isNotEmpty && _passwordController.text.isNotEmpty)
                                 ? () {
                                     Navigator.pushAndRemoveUntil(
                                       context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const HomePage()),
+                                      MaterialPageRoute(builder: (context) => const HomePage()),
                                       ModalRoute.withName('/'),
                                     );
                                   }
                                 : null,
-                            child: Text("ENTRAR",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary)),
+                            child: Text("ENTRAR", style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary)),
                           ),
                         ),
                         const SizedBox(
@@ -163,20 +145,9 @@ class _LoginPage extends State<LoginPage> {
                           width: 220,
                           height: 40,
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.background),
-                            child: Text("RECUPERAR SENHA",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onPrimary)),
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PasswordResetPage())),
+                            style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.surface),
+                            child: Text("RECUPERAR SENHA", style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary)),
+                            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PasswordResetPage())),
                           ),
                         )
                       ],
@@ -192,14 +163,11 @@ class _LoginPage extends State<LoginPage> {
   Widget _portraitloginBody() {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => FocusScope.of(context)
-          .unfocus(), //Hide keyboard when clicking outside of inputs
+      onTap: () => FocusScope.of(context).unfocus(), //Hide keyboard when clicking outside of inputs
       child: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: MediaQuery.of(context).size.width * 0.1),
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: MediaQuery.of(context).size.width * 0.1),
             child: Form(
               key: _formKey,
               child: Column(
@@ -207,9 +175,7 @@ class _LoginPage extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                      width: MediaQuery.of(context).size.width < 520
-                          ? MediaQuery.of(context).size.width * 0.5
-                          : 320,
+                      width: MediaQuery.of(context).size.width < 520 ? MediaQuery.of(context).size.width * 0.5 : 320,
                       child: const Image(
                         image: AssetImage('assets/img/logo/logo-HQ.png'),
                         width: 500,
@@ -232,18 +198,15 @@ class _LoginPage extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                      width: MediaQuery.of(context).size.width < 520
-                          ? MediaQuery.of(context).size.width * 0.8
-                          : 500,
-                      child: TextFormField(
-                        textAlign: TextAlign.center,
-                        textInputAction: TextInputAction.next,
-                        controller: _codeController,
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            contentPadding: EdgeInsets.all(0.0)),
-                        onChanged: (_) => setState(() {}),
-                      )),
+                    width: MediaQuery.of(context).size.width < 520 ? MediaQuery.of(context).size.width * 0.8 : 500,
+                    child: TextFormField(
+                      textAlign: TextAlign.center,
+                      textInputAction: TextInputAction.next,
+                      controller: _codeController,
+                      decoration: const InputDecoration(border: OutlineInputBorder(), contentPadding: EdgeInsets.all(0.0)),
+                      onChanged: (_) => setState(() {}),
+                    ),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
@@ -255,40 +218,36 @@ class _LoginPage extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                      width: MediaQuery.of(context).size.width < 520
-                          ? MediaQuery.of(context).size.width * 0.8
-                          : 500,
-                      child: TextFormField(
-                        textAlign: TextAlign.center,
-                        textInputAction: TextInputAction.done,
-                        autocorrect: false,
-                        enableSuggestions: false,
-                        obscureText: _showPassword ? false : true,
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
-                            contentPadding: const EdgeInsets.all(0.0),
-                            suffixIcon: IconButton(
-                              icon: Icon(_showPassword
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
-                              onPressed: () => setState(() {
-                                _showPassword = _showPassword ? false : true;
-                              }),
-                            )),
-                        onChanged: (_) => setState(() {}),
-                        onFieldSubmitted: (_) {
-                          if (_codeController.text.isNotEmpty &&
-                              _passwordController.text.isNotEmpty) {
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomePage()),
-                              ModalRoute.withName('/'),
-                            );
-                          }
-                        },
-                      )),
+                    width: MediaQuery.of(context).size.width < 520 ? MediaQuery.of(context).size.width * 0.8 : 500,
+                    child: TextFormField(
+                      textAlign: TextAlign.center,
+                      textInputAction: TextInputAction.done,
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      obscureText: _showPassword ? false : true,
+                      controller: _passwordController,
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.all(0.0),
+                        suffixIcon: IconButton(
+                          icon: Icon(_showPassword ? Icons.visibility_off : Icons.visibility),
+                          onPressed: () => setState(() {
+                            _showPassword = _showPassword ? false : true;
+                          }),
+                        ),
+                      ),
+                      onChanged: (_) => setState(() {}),
+                      onFieldSubmitted: (_) {
+                        if (_codeController.text.isNotEmpty && _passwordController.text.isNotEmpty) {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => const HomePage()),
+                            ModalRoute.withName('/'),
+                          );
+                        }
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     height: 50,
                   ),
@@ -296,21 +255,16 @@ class _LoginPage extends State<LoginPage> {
                     width: 220,
                     height: 40,
                     child: ElevatedButton(
-                      onPressed: (_codeController.text.isNotEmpty &&
-                              _passwordController.text.isNotEmpty)
+                      onPressed: (_codeController.text.isNotEmpty && _passwordController.text.isNotEmpty)
                           ? () {
                               Navigator.pushAndRemoveUntil(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
+                                MaterialPageRoute(builder: (context) => const HomePage()),
                                 ModalRoute.withName('/'),
                               );
                             }
                           : null,
-                      child: Text("ENTRAR",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Theme.of(context).colorScheme.onPrimary)),
+                      child: Text("ENTRAR", style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onPrimary)),
                     ),
                   ),
                   const SizedBox(
@@ -321,18 +275,23 @@ class _LoginPage extends State<LoginPage> {
                     height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.background),
-                      child: Text("RECUPERAR SENHA",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Theme.of(context).colorScheme.onPrimary)),
+                        backgroundColor: Theme.of(context).colorScheme.surface,
+                      ),
+                      child: Text(
+                        "RECUPERAR SENHA",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
                       onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PasswordResetPage())),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PasswordResetPage(),
+                        ),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

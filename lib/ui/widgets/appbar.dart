@@ -29,15 +29,18 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
               width: 30,
             ),
             Flexible(
-                child: Text(
-              title.toUpperCase(),
-              overflow: TextOverflow.ellipsis,
-            )),
+              child: Text(
+                title.toUpperCase(),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),
       centerTitle: true,
-      iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+      iconTheme: IconThemeData(
+        color: Theme.of(context).colorScheme.onPrimary,
+      ),
       titleSpacing: 0,
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_home/ui/screens/home.dart';
-import 'package:login_home/ui/screens/login.dart';
+import 'package:login_home/ui/screens/login/login.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "ECGL Produtor",
+        title: "Login",
         theme: ThemeData(
           useMaterial3: false,
           fontFamily: 'Lato',
@@ -25,8 +24,6 @@ class _MyApp extends State<MyApp> {
             brightness: Brightness.light,
             primary: Color(0XFFA0BF7F),
             onPrimary: Color(0XFF1d1b19),
-            background: Color(0XFFDDC9BF),
-            onBackground: Color(0XFF1d1b19),
             secondary: Color(0XFFDDC9BF),
             onSecondary: Color(0XFF1d1b19),
             tertiary: Color(0XFF9A7B6B),
@@ -38,7 +35,6 @@ class _MyApp extends State<MyApp> {
           ),
           scaffoldBackgroundColor: const Color(0XFFfcf5ef),
         ),
-        //    home: const HomePage());
         home: const LoginPage());
   }
 }
